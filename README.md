@@ -4,7 +4,7 @@ mirrativの現在の視聴者一覧を配信上に表示するためのOBSスク
 # 初期設定
 1. リポジトリをクローンします:
     ```bash
-    git clone https://github.com/yourusername/mirrativ-chat-viewer.git
+    git clone https://github.com/saipi-/mirrativ-chat-viewer.git
     ```
 
 2. 必要なライブラリをインストールします:

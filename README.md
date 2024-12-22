@@ -22,4 +22,4 @@ Pythonのインストール場所を
 #ライブIDについて
 
 配信URLのlive/以降を入力
-例:`https://www.mirrativ.com/live/example` の場合、exampleを入力
+例:`https://www.mirrativ.com/live/example` の場合、`example`を入力

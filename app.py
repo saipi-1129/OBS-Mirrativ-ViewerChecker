@@ -1,13 +1,17 @@
 import obspython as obs
 import requests
-import json
+import time
+import threading  # threadingを使用して非同期処理を行う
 
 # OBSのテキストソース名
 text_source_name = "MirrativUserList"
 
 # 設定可能なパラメータ
-live_id = ""
+live_id = "MPnHqKHQjnFWNwhK55z0fg"
 page = 1
+
+# 更新インターバル（秒）
+UPDATE_INTERVAL = 20
 
 def update_names():
     try:
@@ -81,4 +85,14 @@ def script_update(settings):
     
     # 設定更新時にログを出力
     obs.script_log(obs.LOG_INFO, f"Settings updated: live_id={live_id}, page={page}")
-    update_names()
+    
+    # 別スレッドで定期的にupdate_names関数を呼び出す
+    def start_update_loop():
+        while True:
+            update_names()
+            time.sleep(UPDATE_INTERVAL)  # 10秒ごとに実行
+
+    # 新しいスレッドで更新ループを開始
+    update_thread = threading.Thread(target=start_update_loop)
+    update_thread.daemon = True  # OBSが終了したときにスレッドも終了するようにする
+    update_thread.start()

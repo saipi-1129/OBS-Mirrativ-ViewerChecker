@@ -1,0 +1,2 @@
+# OBS-Mirrativ-ViewerChecker
+mirrativの現在の視聴者一覧を配信上に表示するためのOBSスクリプト
